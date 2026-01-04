@@ -1,0 +1,62 @@
+
+Found a 'test' script in the Anchor.toml. Running it as a test suite!
+
+Running test suite: "/home/morteza/learning/solana/staking-program/anchor/Anchor.toml"
+
+Error: websocket error
+Error: websocket error
+(node:55133) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS tests/counter.test.ts
+(node:55132) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+FAIL tests/staking-program.test.ts (25.257 s)
+  ● Console
+
+    console.warn
+      bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+
+      2 | import { Program, BN } from '@coral-xyz/anchor'
+      3 | import { Keypair, PublicKey } from '@solana/web3.js'
+    > 4 | import { createMint, getOrCreateAssociatedTokenAccount, mintTo, getAccount } from '@solana/spl-token'
+        | ^
+      5 | import { StakingProgram } from '../target/types/staking-program'
+      6 |
+      7 | describe('staking-program', () => {
+
+      at Object.<anonymous> (node_modules/bigint-buffer/dist/node.js:10:17)
+      at Object.<anonymous> (node_modules/@solana/buffer-layout-utils/src/bigint.ts:2:1)
+      at Object.<anonymous> (node_modules/@solana/buffer-layout-utils/src/index.ts:2:1)
+      at Object.<anonymous> (node_modules/@solana/spl-token/src/instructions/amountToUiAmount.ts:2:1)
+      at Object.<anonymous> (node_modules/@solana/spl-token/src/actions/amountToUiAmount.ts:4:1)
+      at Object.<anonymous> (node_modules/@solana/spl-token/src/actions/index.ts:1:1)
+      at Object.<anonymous> (node_modules/@solana/spl-token/src/index.ts:1:1)
+      at Object.<anonymous> (anchor/tests/staking-program.test.ts:4:1)
+
+    console.log
+      Rewards claimed: 1.75 tokens
+
+      at Object.<anonymous> (anchor/tests/staking-program.test.ts:277:13)
+
+  ● staking-program › Cannot Claim When No Stake and No Pending Rewards
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /NoRewardsToClaim|seeds do not result in a valid address/
+    Received string:  "fail is not defined"
+
+      318 |     } catch (error) {
+      319 |       // After unstaking all, the account may have issues with PDA or no rewards
+    > 320 |       expect((error as Error).message).toMatch(/NoRewardsToClaim|seeds do not result in a valid address/)
+          |                                        ^
+      321 |     }
+      322 |   })
+      323 | })
+
+      at Object.<anonymous> (anchor/tests/staking-program.test.ts:320:40)
+
+Test Suites: 1 failed, 1 passed, 2 total
+Tests:       1 failed, 14 passed, 15 total
+Snapshots:   0 total
+Time:        26.518 s
+Ran all test suites.

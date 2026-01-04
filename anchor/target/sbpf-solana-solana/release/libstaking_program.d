@@ -1,0 +1,1 @@
+/home/morteza/learning/solana/staking-program/anchor/target/sbpf-solana-solana/release/libstaking_program.rlib: /home/morteza/learning/solana/staking-program/anchor/programs/staking-program/src/lib.rs
